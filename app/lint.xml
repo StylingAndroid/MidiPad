@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <issue id="GradleDependency">
+    <ignore regexp=".*com\.android\.support.*" />
+  </issue>
+  <issue id="UnusedResources">
+    <ignore regexp=".*R\.[layout|menu|string].*" />
+  </issue>
+  <issue id="IconLauncherShape">
+    <ignore regexp=".*_background.png" />
+  </issue>
+</lint>
