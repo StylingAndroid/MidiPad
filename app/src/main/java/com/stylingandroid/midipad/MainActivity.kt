@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         midiController.closeAll()
+        midiController.removeObserver(deviceAdapter)
         super.onDestroy()
     }
 }

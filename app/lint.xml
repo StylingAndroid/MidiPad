@@ -9,4 +9,7 @@
   <issue id="IconLauncherShape">
     <ignore regexp=".*_background.png" />
   </issue>
+  <issue id="GradleDependency">
+    <ignore regexp=".*beta2" />
+  </issue>
 </lint>
