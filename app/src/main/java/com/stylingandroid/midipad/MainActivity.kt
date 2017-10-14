@@ -2,7 +2,6 @@ package com.stylingandroid.midipad
 
 import android.arch.lifecycle.LifecycleRegistry
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.View
@@ -10,7 +9,6 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import com.stylingandroid.midipad.midi.MidiController
 import com.stylingandroid.midipad.ui.DeviceAdapter
-import com.stylingandroid.midipad.ui.MidiPad
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,11 +33,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         midiController.observeDevices(this, deviceAdapter)
-
-        supportFragmentManager.beginTransaction()?.also {
-            it.replace(R.id.main_content, Fragment.instantiate(this, MidiPad::class.java.canonicalName))
-            it.commit()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

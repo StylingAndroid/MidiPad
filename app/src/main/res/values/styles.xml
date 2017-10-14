@@ -9,4 +9,14 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="Pad"
+    tools:ignore="UnusedResources">
+    <item name="padColour">@color/colorAccent</item>
+    <item name="outlineColour">@color/colorPrimaryDark</item>
+    <item name="outlineWidth">3dp</item>
+    <item name="cornerRadius">20</item>
+    <item name="fadeInDuration">100</item>
+    <item name="fadeOutDuration">@android:integer/config_shortAnimTime</item>
+  </style>
+
 </resources>

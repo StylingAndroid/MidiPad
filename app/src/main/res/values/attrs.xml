@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="PadView">
+    <attr name="padColour" format="color|reference" />
+    <attr name="outlineColour" format="color|reference" />
+    <attr name="outlineWidth" format="dimension|reference" />
+    <attr name="cornerRadius" format="float|reference" />
+    <attr name="fadeInDuration" format="integer|reference" />
+    <attr name="fadeOutDuration" format="integer|reference" />
+  </declare-styleable>
+</resources>

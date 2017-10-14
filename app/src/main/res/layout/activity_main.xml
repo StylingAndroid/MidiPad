@@ -18,8 +18,8 @@
     app:layout_constraintTop_toTopOf="parent"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-  <FrameLayout
-    android:id="@+id/main_content"
+  <com.stylingandroid.midipad.ui.MidiPad
+    android:id="@+id/midi_pad"
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintBottom_toBottomOf="parent"

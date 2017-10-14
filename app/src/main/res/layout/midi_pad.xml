@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="com.stylingandroid.midipad.MainActivity"
+  tools:parentTag="com.stylingandroid.midipad.ui.MidiPad">
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad1"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@+id/pad3"
+    app:layout_constraintEnd_toStartOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad2"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="8dp"
+    app:layout_constraintBottom_toBottomOf="@id/pad1"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/pad1"
+    app:layout_constraintTop_toTopOf="@+id/pad1" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad3"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@+id/pad5"
+    app:layout_constraintEnd_toEndOf="@id/pad1"
+    app:layout_constraintStart_toStartOf="@+id/pad1"
+    app:layout_constraintTop_toBottomOf="@+id/pad1" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad4"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="@+id/pad3"
+    app:layout_constraintEnd_toEndOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/pad2"
+    app:layout_constraintTop_toTopOf="@+id/pad3" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad5"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@+id/pad7"
+    app:layout_constraintEnd_toEndOf="@id/pad1"
+    app:layout_constraintStart_toStartOf="@+id/pad1"
+    app:layout_constraintTop_toBottomOf="@+id/pad3" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad6"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="@+id/pad5"
+    app:layout_constraintEnd_toEndOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/pad2"
+    app:layout_constraintTop_toTopOf="@+id/pad5" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad7"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@+id/pad9"
+    app:layout_constraintEnd_toEndOf="@id/pad1"
+    app:layout_constraintStart_toStartOf="@+id/pad1"
+    app:layout_constraintTop_toBottomOf="@+id/pad5" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad8"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="@+id/pad7"
+    app:layout_constraintEnd_toEndOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/pad2"
+    app:layout_constraintTop_toTopOf="@+id/pad7" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad9"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@+id/pad11"
+    app:layout_constraintEnd_toEndOf="@id/pad1"
+    app:layout_constraintStart_toStartOf="@+id/pad1"
+    app:layout_constraintTop_toBottomOf="@+id/pad7" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad10"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="@+id/pad9"
+    app:layout_constraintEnd_toEndOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/pad2"
+    app:layout_constraintTop_toTopOf="@+id/pad9" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad11"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@id/pad1"
+    app:layout_constraintStart_toStartOf="@+id/pad1"
+    app:layout_constraintTop_toBottomOf="@+id/pad9" />
+
+  <com.stylingandroid.midipad.ui.PadView
+    android:id="@+id/pad12"
+    style="@style/Pad"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="@+id/pad11"
+    app:layout_constraintEnd_toEndOf="@+id/pad2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/pad2"
+    app:layout_constraintTop_toTopOf="@+id/pad11" />
+</merge>
