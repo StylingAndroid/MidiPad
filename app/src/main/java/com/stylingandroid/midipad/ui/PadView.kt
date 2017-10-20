@@ -16,6 +16,7 @@ import android.view.MotionEvent
 import android.view.View
 import com.stylingandroid.midipad.R
 import com.stylingandroid.midipad.getColour
+import com.stylingandroid.midipad.lazyFast
 
 class PadView @JvmOverloads constructor(
         context: Context,
@@ -39,7 +40,7 @@ class PadView @JvmOverloads constructor(
             invalidate()
         }
 
-    private val outline: Paint by lazy(LazyThreadSafetyMode.NONE) {
+    private val outline: Paint by lazyFast {
         Paint().apply {
             color = outlineColour
             strokeWidth = outlineWidth
@@ -48,7 +49,7 @@ class PadView @JvmOverloads constructor(
         }
     }
 
-    private val fill: Paint by lazy(LazyThreadSafetyMode.NONE) {
+    private val fill: Paint by lazyFast {
         Paint().apply {
             color = padColour
             style = Paint.Style.FILL
@@ -56,27 +57,22 @@ class PadView @JvmOverloads constructor(
     }
 
     init {
-        if (!isInEditMode) {
-            attrs?.apply {
-                context.obtainStyledAttributes(this, R.styleable.PadView)
-                        .apply {
-                            val defaultColour = context.theme.getColour(R.attr.colorAccent)
-                            padColour = getColor(R.styleable.PadView_padColour, defaultColour)
-                            outlineColour = getColor(R.styleable.PadView_outlineColour, defaultColour)
-                            outlineWidth = getDimension(R.styleable.PadView_outlineWidth, 1f)
-                            cornerRadius = getFloat(R.styleable.PadView_cornerRadius, 0f)
-                            fadeInDuration = getLong(R.styleable.PadView_fadeInDuration, 0)
-                            fadeOutDuration = getLong(R.styleable.PadView_fadeOutDuration, 0)
-                        }
-                        .apply {
-                            recycle()
-                        }
+        attrs?.apply {
+            context.obtainStyledAttributes(this, R.styleable.PadView).apply {
+                val defaultColour = context.theme.getColour(R.attr.colorAccent)
+                padColour = getColor(R.styleable.PadView_padColour, defaultColour)
+                outlineColour = getColor(R.styleable.PadView_outlineColour, defaultColour)
+                outlineWidth = getDimension(R.styleable.PadView_outlineWidth, 1f)
+                cornerRadius = getFloat(R.styleable.PadView_cornerRadius, 0f)
+                fadeInDuration = getLong(R.styleable.PadView_fadeInDuration, 0)
+                fadeOutDuration = getLong(R.styleable.PadView_fadeOutDuration, 0)
+                recycle()
             }
         }
     }
 
     private fun TypedArray.getLong(index: Int, default: Int) =
-        getInt(index, default).toLong()
+            getInt(index, default).toLong()
 
     override fun onSizeChanged(newWidth: Int, newHeight: Int, oldWidth: Int, oldHeight: Int) =
             super.onSizeChanged(newWidth, newHeight, oldWidth, oldHeight).run {
@@ -92,7 +88,7 @@ class PadView @JvmOverloads constructor(
         fill.shader = RadialGradient(
                 width / 2,
                 height / 2,
-                Math.abs(width - height),
+                Math.max(width, height) * SCALE_FACTOR,
                 padColour,
                 Color.TRANSPARENT,
                 Shader.TileMode.CLAMP
@@ -150,5 +146,6 @@ class PadView @JvmOverloads constructor(
 
     companion object {
         private const val PRESSURE = "pressure"
+        private const val SCALE_FACTOR = 0.6f
     }
 }
