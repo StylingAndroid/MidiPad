@@ -6,12 +6,15 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.stylingandroid.midipad.R
+import com.stylingandroid.midipad.midi.MidiController
 
 class MidiPad @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyle: Int = 0
 ) : ConstraintLayout(context, attrs, defStyle) {
+
+    var midiController: MidiController? = null
 
     init {
         View.inflate(context, R.layout.midi_pad, this)
@@ -38,13 +41,11 @@ class MidiPad @JvmOverloads constructor(
     private fun touch(note: Int, motionEvent: MotionEvent): Boolean =
             when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    println("Note On: $note")
-                    //TODO start note playing
+                    midiController?.noteOn(note, motionEvent.pressure)
                     false
                 }
                 MotionEvent.ACTION_UP -> {
-                    println("Note Off: $note")
-                    //TODO stop note playing
+                    midiController?.noteOff(note, motionEvent.pressure)
                     false
                 }
                 else -> false

@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         midiController.observeDevices(this, deviceAdapter)
+        midi_pad.midiController = midiController
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 adapter = deviceAdapter
                 onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                     override fun onNothingSelected(parent: AdapterView<*>?) {
-                        midiController.closeAll()
+                        midiController.close()
                     }
 
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -57,7 +58,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        midiController.closeAll()
         midiController.removeObserver(deviceAdapter)
         super.onDestroy()
     }
