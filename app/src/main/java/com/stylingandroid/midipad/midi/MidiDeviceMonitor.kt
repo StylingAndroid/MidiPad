@@ -29,12 +29,12 @@ class MidiDeviceMonitor internal constructor(
         super.onInactive()
     }
 
-    override fun observe(owner: LifecycleOwner?, observer: Observer<List<MidiDeviceInfo>>?) {
+    override fun observe(owner: LifecycleOwner, observer: Observer<List<MidiDeviceInfo>>) {
         super.observe(owner, observer)
         addSource(data, observer)
     }
 
-    override fun removeObserver(observer: Observer<List<MidiDeviceInfo>>?) {
+    override fun removeObserver(observer: Observer<List<MidiDeviceInfo>>) {
         super.removeObserver(observer)
         if (!hasObservers()) {
             removeSource(data)
